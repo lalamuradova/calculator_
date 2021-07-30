@@ -126,27 +126,31 @@ namespace calculator_
         }
         public void Calculate()
         {
-            double num1 = double.Parse(Conteyner);            
-            double num2 = double.Parse(Resultlbl.Text);
+            double num1 = double.Parse(Conteyner);
+            if (Resultlbl.Text != string.Empty)
+            {
+                double num2 = double.Parse(Resultlbl.Text);
+
+                if (Operation == "*")
+                {
+                    calculatelbl.Text = (num1 * num2).ToString();
+                }
+                else if (Operation == "/")
+                {
+                    calculatelbl.Text = (num1 / num2).ToString();
+                }
+                else if (Operation == "+")
+                {
+                    calculatelbl.Text = (num1 + num2).ToString();
+                }
+                else
+                {
+                    calculatelbl.Text = (num1 - num2).ToString();
+                }
+                Conteyner = calculatelbl.Text;
+                Resultlbl.Text = string.Empty;
+            }
             
-            if (Operation == "*")
-            {
-                calculatelbl.Text = (num1 * num2).ToString();               
-            }
-            else if (Operation == "/")
-            {
-                calculatelbl.Text = (num1 / num2).ToString();
-            }
-            else if (Operation == "+")
-            {
-                calculatelbl.Text = (num1 + num2).ToString();
-            }
-            else
-            {
-                calculatelbl.Text = (num1 - num2).ToString();
-            }
-            Conteyner = calculatelbl.Text;
-            Resultlbl.Text = string.Empty;
         }
         private void Deletebtn_Click(object sender, EventArgs e)
         {
